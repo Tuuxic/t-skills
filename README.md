@@ -1,4 +1,4 @@
-# skills
+# t-skills
 
 My skill library for AI agents, built on [Matt Pocock's skills](https://github.com/mattpocock/skills). Most of his skills are unchanged. My edits and own skills add question popups in `grilling`, my working style, and a note-capture skill.
 
@@ -7,7 +7,7 @@ My skill library for AI agents, built on [Matt Pocock's skills](https://github.c
 **Claude Code.** Add the marketplace from GitHub (or from a local clone by its path), then install:
 
 ```
-claude plugin marketplace add Tuuxic/skills
+claude plugin marketplace add Tuuxic/t-skills
 claude plugin install t-skills@tuuxic
 claude plugin install t-obsidian@tuuxic
 ```
