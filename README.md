@@ -7,7 +7,7 @@ My skill library for AI agents, built on [Matt Pocock's skills](https://github.c
 **Claude Code.** Add the marketplace from GitHub (or from a local clone by its path), then install:
 
 ```
-claude plugin marketplace add Tuuxic/skills
+claude plugin marketplace add Tuuxic/t-skills
 claude plugin install t-skills@tuuxic
 claude plugin install t-obsidian@tuuxic
 ```

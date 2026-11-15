@@ -37,7 +37,7 @@ The repo has no test suite. Before you call a change done:
 
 ### Issue tracker
 
-Issues live in GitHub Issues for `Tuuxic/skills`, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues live in GitHub Issues for `Tuuxic/t-skills`, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
