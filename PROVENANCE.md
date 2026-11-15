@@ -18,8 +18,10 @@ The table states intent. For the exact lines, run `git diff vendor/matt -- skill
 
 | Skill | Label | What I changed |
 |---|---|---|
-| Every skill from the source not listed below (24) | upstream | |
+| Every skill from the source not listed below (17) | upstream | |
 | `implement`, `implement-spec` | adapted | Call `t-skills:code-review` by its namespaced name, because the bare name runs Claude Code's built-in `code-review`. The bare name stays as the fallback for other harnesses. |
+| `flow`, `setup-project` | adapted | Renamed from `ask-matt` and `setup-matt-pocock-skills`, with the heading and the `agents/openai.yaml` display name to match. `setup-project`'s templates name no author repo: the triage table's first column is "Canonical role", and the GitHub guardrail keeps only the `gh repo view` check. |
+| `code-review`, `implement-spec`, `to-spec`, `to-tickets`, `triage`, `wayfinder` | adapted | Call `/setup-project` by its new name. |
 | `grilling` | adapted | A round is a question-tool popup of up to four questions, the most unblocking first, replacing the numbered list template, with a one-question plain message as the fallback. |
 | `t-mode` | own | My full working style, written from my vault's conversation rules. The proof and writing rules are in my own words. Its `agents/openai.yaml` is hand-written. |
 | `inbox-capture` | own | Written from my vault's `CLAUDE.md`, its templates, and one existing capture. Finds the vault per device (working directory, `SECOND_BRAIN_VAULT`, memory, or asks). |
@@ -31,12 +33,13 @@ Other files that are my own: `README.md`, `CLAUDE.md`, `PROVENANCE.md`, `persona
 | Decision | Why |
 |---|---|
 | Build on Matt's skills, with pstack out for now | A fresh start from one paradigm instead of merging two. |
-| Take all 27 stable skills | `ask-matt` stays accurate without edits, and skills he calls by name are always installed. User-invoked skills cost no context until typed. `in-progress` and `misc` stay out. |
+| Take all 27 stable skills | `flow` stays accurate without edits, and skills he calls by name are always installed. User-invoked skills cost no context until typed. `in-progress` and `misc` stay out. |
 | Start from his text, and bring edits back when a real session shows the need | I can adapt freely, but only `grilling`'s popups earned a place in the reset. His setup skill already covers a local or "Other" (Notion) tracker. |
 | Keep the question-tool popups in `grilling` | Matt rejects these for his skills. I prefer them, and "Other" still takes a free-text answer. |
 | Namespace the two `code-review` calls instead of renaming the skill | Tested: a bare-name call resolves to Claude Code's built-in. Two one-line edits are the smallest fix that works in every session. Matt won't rename his skill, and a `CLAUDE.md` line only works where it's linked. |
 | One `t-skills` plugin, with `inbox-capture` apart in `t-obsidian` | His skills call each other across folders, so a partial install would break real steps. |
 | Style in both `personal/CLAUDE.md` and `t-mode` | I work from several devices. `CLAUDE.md` is the main home, symlinked per device. `t-mode` is the fuller version that travels with the plugin. |
+| Rename skills that carry an author's name (`ask-matt` → `flow`, `setup-matt-pocock-skills` → `setup-project`) | The library is about the skills, not who wrote them. The README still credits Matt. The key in `upstream.json` sets the folder name, so his updates still merge, and `sync_upstream.py report` flags any old name a merge brings back. |
 | Import his `agents/openai.yaml` | Keeps Codex working and the folders identical to the source, so the build needs no generator. |
 
 The state before this reset is the tag `pre-matt-reset`, including pstack, its clash decisions, and my merged skills.

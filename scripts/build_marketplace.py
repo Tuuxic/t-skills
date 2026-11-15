@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = json.loads((ROOT / "upstream.json").read_text(encoding="utf8"))
-VERSION = "0.2.1"
+VERSION = "0.3.0"
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
     marketplace = {
         "name": "tuuxic",
         "owner": {"name": "Tuuxic"},
-        "description": "Tuuxic's skill library, built on Matt Pocock's skills.",
+        "description": "Tuuxic's skill library.",
         "plugins": plugins,
     }
     out = ROOT / ".claude-plugin" / "marketplace.json"

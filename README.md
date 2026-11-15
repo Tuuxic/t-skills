@@ -14,10 +14,10 @@ claude plugin install t-obsidian@tuuxic
 
 | Plugin | Contents |
 |---|---|
-| `t-skills` | Matt's 27 skills and `t-mode`. |
+| `t-skills` | 27 skills for planning, building, debugging, and review, adapted from Matt Pocock's skills, plus `t-mode`. |
 | `t-obsidian` | `inbox-capture`. Optional. |
 
-Then run `/setup-matt-pocock-skills` once in each repo where you use the engineering skills. It records the issue tracker and the domain doc layout.
+Then run `/setup-project` once in each repo where you use the engineering skills. It records the issue tracker and the domain doc layout.
 
 **My working style.** A plugin can't install a global `CLAUDE.md`, so on each device, link `personal/CLAUDE.md` from a clone of this repo. Update it with `git pull`.
 
@@ -39,11 +39,11 @@ Where there is no link or no global `CLAUDE.md`, type `/t-mode` for the full ver
 
 ## Which skill to run
 
-Type `/ask-matt` and describe your situation. The usual route for a feature is:
+Type `/flow` and describe your situation. The usual route for a feature is:
 
 `/grill-with-docs` → `/to-spec` → `/to-tickets` → `/implement` or `/implement-spec` → `/retro`
 
-`/setup-matt-pocock-skills` comes first in each repo. `/implement` and `/implement-spec` drive `tdd` and close with `code-review`. To run that review yourself in Claude Code, type `/t-skills:code-review`, because `/code-review` is Claude Code's built-in.
+`/setup-project` comes first in each repo. `/implement` and `/implement-spec` drive `tdd` and close with `code-review`. To run that review yourself in Claude Code, type `/t-skills:code-review`, because `/code-review` is Claude Code's built-in.
 
 ## Skills
 
@@ -53,8 +53,8 @@ Type `/ask-matt` and describe your situation. The usual route for a feature is:
 
 | Skill | Run | What it does |
 |---|---|---|
-| `ask-matt` | user | Router: says which skill or flow fits your situation. |
-| `setup-matt-pocock-skills` | user | Configures a repo's issue tracker, triage labels, and domain doc layout. |
+| `flow` | user | Router: says which skill or flow fits your situation. |
+| `setup-project` | user | Configures a repo's issue tracker, triage labels, and domain doc layout. |
 | `grilling` | auto | Interview over a decision tree, in question popups of up to four questions with a recommended answer for each. |
 | `grill-me` | user | `grilling` with nothing saved, for work outside a repo. |
 | `grill-with-docs` | user | `grilling` plus `domain-modeling`: updates `GLOSSARY.md` and ADRs as terms settle. |

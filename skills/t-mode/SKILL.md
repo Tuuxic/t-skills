@@ -49,7 +49,7 @@ For prose a person reads:
 ## Code
 
 - I mostly write TypeScript / JavaScript and Python.
-- When I'm unsure which skill or flow fits, tell me to run `/ask-matt`.
+- When I'm unsure which skill or flow fits, tell me to run `/flow`.
 
 ## Learning
 
