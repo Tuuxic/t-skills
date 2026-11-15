@@ -10,6 +10,7 @@
 import argparse
 import fnmatch
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -106,6 +107,24 @@ def import_source(name, at):
             print("Ideas merged from these are not tracked; check upstream by hand:\n  " + "\n  ".join(also))
 
 
+def report_old_names():
+    """List lines under skills/ that still use a source's name for a skill this library renamed."""
+    renamed = {Path(e["path"]).name: n for n, e in MANIFEST["skills"].items()
+               if e["source"] != "local" and Path(e["path"]).name != n}
+    patterns = {old: re.compile(rf"(?<![\w-]){re.escape(old)}(?![\w-])") for old in renamed}
+    hits = []
+    for f in sorted((ROOT / "skills").rglob("*")):
+        if not f.is_file() or f.suffix not in {".md", ".yaml"}:
+            continue
+        for n, line in enumerate(f.read_text(encoding="utf8").splitlines(), 1):
+            hits += [f"{f.relative_to(ROOT).as_posix()}:{n}: {old} -> {renamed[old]}"
+                     for old, pattern in patterns.items() if pattern.search(line)]
+    if hits:
+        print("\nOld skill names still in use, rename them:\n  " + "\n  ".join(hits))
+    else:
+        print("\nOld skill names: none in skills/.")
+
+
 def report():
     for name in MANIFEST["sources"]:
         branch = f"vendor/{name}"
@@ -120,6 +139,7 @@ def report():
             print(f"  {'changed  ' if changed else 'identical'}  {skill}")
     local = [n for n, s in MANIFEST["skills"].items() if s["source"] == "local"]
     print("\nlocal (own text): " + ", ".join(local))
+    report_old_names()
     print("\nExact changes for one skill: git diff vendor/<source> -- skills/<skill>")
 
 

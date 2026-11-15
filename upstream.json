@@ -8,7 +8,7 @@
     }
   },
   "skills": {
-    "ask-matt": {
+    "flow": {
       "source": "matt",
       "path": "engineering/ask-matt",
       "group": "t-skills"
@@ -73,7 +73,7 @@
       "path": "engineering/retro",
       "group": "t-skills"
     },
-    "setup-matt-pocock-skills": {
+    "setup-project": {
       "source": "matt",
       "path": "engineering/setup-matt-pocock-skills",
       "group": "t-skills"
@@ -159,7 +159,7 @@
     ]
   },
   "groups": {
-    "t-skills": "Matt Pocock's skills for planning, building, debugging, and review, plus my working style (t-mode).",
+    "t-skills": "Skills for planning, building, debugging, and review, plus my working style (t-mode).",
     "t-obsidian": "Capture ideas and sources into my Obsidian second-brain inbox."
   }
 }
