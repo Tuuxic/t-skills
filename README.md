@@ -1,4 +1,4 @@
-# skills
+# t-skills
 
 My skill library for AI agents, built on [Matt Pocock's skills](https://github.com/mattpocock/skills). Most of his skills are unchanged. My edits and own skills add question popups in `grilling`, my working style, and a note-capture skill.
 
