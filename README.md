@@ -1,6 +1,6 @@
 # skills
 
-My skill library for AI agents, built on [Matt Pocock's skills](https://github.com/mattpocock/skills). His skills stay close to upstream. My own layer adds question popups in `grilling`, my working style, and a note-capture skill.
+My skill library for AI agents, built on [Matt Pocock's skills](https://github.com/mattpocock/skills). Most of his skills are unchanged. My edits and own skills add question popups in `grilling`, my working style, and a note-capture skill.
 
 ## Install
 
@@ -105,6 +105,6 @@ Type `/ask-matt` and describe your situation. The usual route for a feature is:
 
 ## Where the skills come from
 
-[PROVENANCE.md](PROVENANCE.md) labels each skill as upstream, adapted, or own. It lists what changed, records the design decisions, and explains how to pull in upstream updates.
+[PROVENANCE.md](PROVENANCE.md) labels each skill as upstream, adapted, or own. It lists what changed, records the design decisions, and explains how to pull in updates from the source.
 
 Built from Matt Pocock's skills, MIT. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

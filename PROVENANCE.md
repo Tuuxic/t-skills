@@ -1,24 +1,24 @@
 # Provenance
 
-Where every skill comes from, what I changed, and how to pull in upstream updates.
+Where every skill comes from, what I changed, and how to pull in updates from the source.
 
 Source: [mattpocock/skills](https://github.com/mattpocock/skills), imported at `4ae2317` (2026-11-05).
 
-`upstream.json` maps each skill to its upstream path. The untouched upstream copy lives on the branch `vendor/matt`.
+`upstream.json` maps each skill to its path in the source. The vendor branch `vendor/matt` holds an untouched copy of the source.
 
 ## Labels
 
 - **upstream**: byte-identical to the source.
 - **adapted**: from the source, with my edits. The edits are listed below.
-- **own**: written for this library, no upstream.
+- **own**: written for this library, no source.
 
-The table states intent. For the exact lines, run `git diff vendor/matt -- skills/<skill>`. `python scripts/sync_upstream.py report` checks which skills currently differ from upstream.
+The table states intent. For the exact lines, run `git diff vendor/matt -- skills/<skill>`. `python scripts/sync_upstream.py report` checks which skills currently differ from the source.
 
 ## Skills
 
 | Skill | Label | What I changed |
 |---|---|---|
-| Every Matt skill not listed below (24) | upstream | |
+| Every skill from the source not listed below (24) | upstream | |
 | `implement`, `implement-spec` | adapted | Call `t-skills:code-review` by its namespaced name, because the bare name runs Claude Code's built-in `code-review`. The bare name stays as the fallback for other harnesses. |
 | `grilling` | adapted | A round is a question-tool popup of up to four questions, the most unblocking first, replacing the numbered list template, with a one-question plain message as the fallback. |
 | `t-mode` | own | My full working style, written from my vault's conversation rules. The proof and writing rules are in my own words. Its `agents/openai.yaml` is hand-written. |
@@ -37,23 +37,23 @@ Other files that are my own: `README.md`, `CLAUDE.md`, `PROVENANCE.md`, `persona
 | Namespace the two `code-review` calls instead of renaming the skill | Tested: a bare-name call resolves to Claude Code's built-in. Two one-line edits are the smallest fix that works in every session. Matt won't rename his skill, and a `CLAUDE.md` line only works where it's linked. |
 | One `t-skills` plugin, with `inbox-capture` apart in `t-obsidian` | His skills call each other across folders, so a partial install would break real steps. |
 | Style in both `personal/CLAUDE.md` and `t-mode` | I work from several devices. `CLAUDE.md` is the main home, symlinked per device. `t-mode` is the fuller version that travels with the plugin. |
-| Import his `agents/openai.yaml` | Keeps Codex working and the folders identical to upstream, so the build needs no generator. |
+| Import his `agents/openai.yaml` | Keeps Codex working and the folders identical to the source, so the build needs no generator. |
 
 The state before this reset is the tag `pre-matt-reset`, including pstack, its clash decisions, and my merged skills.
 
-## Updating from upstream
+## Updating from the source
 
-1. Import the new upstream onto its vendor branch. This doesn't touch the current branch:
+1. Import the source's latest version onto its vendor branch. This doesn't touch the current branch:
 
    ```
    python scripts/sync_upstream.py import matt
    ```
 
-   The output shows which files changed upstream. It also lists upstream skills that are new (neither tracked nor in `left_out`).
-2. Read what upstream changed: `git show vendor/matt`.
-3. Merge it: `git merge vendor/matt`. Skills labelled upstream update cleanly. For adapted skills, git applies the upstream change on top of my edits, and it stops with a conflict only where both sides changed the same lines. Resolve conflicts against the decisions above.
+   The output shows which files changed in the source. It also lists skills that are new in the source (neither tracked nor in `left_out`).
+2. Read what the source changed: `git show vendor/matt`.
+3. Merge it: `git merge vendor/matt`. Skills labelled upstream update cleanly. For adapted skills, git applies the source's change on top of my edits, and it stops with a conflict only where both sides changed the same lines. Resolve conflicts against the decisions above.
 4. Push the branch so other devices get it: `git push origin vendor/matt`.
-5. For each new upstream skill, either add it to `skills` in `upstream.json` and import again, or add it to `left_out`.
+5. For each skill new in the source, either add it to `skills` in `upstream.json` and import again, or add it to `left_out`.
 6. If an update changes what a skill does, update its row here and in `README.md`.
 
 ## Bringing pstack back
