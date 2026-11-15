@@ -32,3 +32,17 @@ The repo has no test suite. Before you call a change done:
 - `vendor/matt` holds an untouched upstream copy. Only `sync_upstream.py import` writes to it. `vendor/pstack` is dormant: pstack is out for now, and `PROVENANCE.md` says how to bring it back.
 - In Claude Code, the bare name `code-review` runs the built-in skill. Ours is `t-skills:code-review`, for operative calls and for typing it.
 - The skills loaded in a session come from the installed plugin, not this working tree. To see the current text of a skill, read it under `skills/`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `Tuuxic/skills`, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one root `GLOSSARY.md` plus `docs/adr/`. See `docs/agents/domain.md`.
